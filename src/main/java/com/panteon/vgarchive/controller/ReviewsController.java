@@ -21,4 +21,10 @@ public class ReviewsController {
     public UsersReviews getReviewById(@PathVariable int id) {
         return usersReviewsService.getReviewById(id);
     }
+
+    @GetMapping("/{id}/delete")
+    public String delReview(@PathVariable int id) {
+        usersReviewsService.delReview(id);
+        return "Deleted user: " + id;
+    }
 }

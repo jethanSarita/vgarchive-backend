@@ -23,4 +23,7 @@ public class UsersReviewsService {
         return userReview;
     }
 
+    public void delReview(int id) {
+        usersReviewsRepository.deleteById(id);
+    }
 }
