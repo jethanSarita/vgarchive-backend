@@ -23,4 +23,22 @@ public class UsersController {
     public List<Users> getAllUsers() {
         return usersService.getAllUsers();
     }
+
+    @GetMapping("/{id}/delete")
+    public String delUser(@PathVariable int id) {
+        usersService.delUser(id);
+        return id + " deleted";
+    }
+
+    @PostMapping("/{id}/updateAvatar")
+    public String updateAvatar(@PathVariable int id, @RequestParam String updateValue) {
+        usersService.updateAvatar(id, updateValue);
+        return "Updated the avatar of user: " + id;
+    }
+
+    @PostMapping("/{id}/updateBio")
+    public String updateBio(@PathVariable int id, @RequestParam String updateValue) {
+        usersService.updateBio(id, updateValue);
+        return "Updated the bio of user: " + id;
+    }
 }

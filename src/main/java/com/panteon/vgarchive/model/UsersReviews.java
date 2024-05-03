@@ -16,11 +16,9 @@ public class UsersReviews {
     private Date date_created;
     private boolean recommended;
     @ElementCollection
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Boolean> agree_disagree_ratio;
     private int game_id;
     @ManyToOne
-    @JoinColumn(name = "author", referencedColumnName = "id")
     private Users author;
 
     public UsersReviews() {

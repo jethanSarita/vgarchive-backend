@@ -17,12 +17,30 @@ public class UsersService {
         return usersRepository.save(u);
     }
 
-    public void delUser (Users u) {
-        usersRepository.delete(u);
+    public void delUser (int id) {
+        usersRepository.deleteById(id);
     }
 
     public List<Users> getAllUsers() {
         return usersRepository.findAll();
+    }
+
+    public void updateAvatar(int id, String updateValue) {
+        Users user = usersRepository.findById(id).orElse(null);
+        if (user == null) {
+            throw new RuntimeException("null at 31");
+        }
+        user.setAvatar_url(updateValue);
+        usersRepository.save(user);
+    }
+
+    public void updateBio(int id, String updateValue) {
+        Users user = usersRepository.findById(id).orElse(null);
+        if (user == null) {
+            throw new RuntimeException("null");
+        }
+        user.setProfile_bio(updateValue);
+        usersRepository.save(user);
     }
 
 }

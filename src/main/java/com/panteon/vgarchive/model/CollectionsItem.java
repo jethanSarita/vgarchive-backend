@@ -10,10 +10,11 @@ public class CollectionsItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date added_at;
-    private int game_id;
-    private int collection;
+    private String name;
     private String description;
+    @ManyToOne
+    private UsersCollections author;
+    private int views;
 
     public CollectionsItem() {
     }
@@ -26,28 +27,12 @@ public class CollectionsItem {
         this.id = id;
     }
 
-    public Date getAdded_at() {
-        return added_at;
+    public String getName() {
+        return name;
     }
 
-    public void setAdded_at(Date added_at) {
-        this.added_at = added_at;
-    }
-
-    public int getGame_id() {
-        return game_id;
-    }
-
-    public void setGame_id(int game_id) {
-        this.game_id = game_id;
-    }
-
-    public int getCollection() {
-        return collection;
-    }
-
-    public void setCollection(int collection) {
-        this.collection = collection;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -56,6 +41,22 @@ public class CollectionsItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public UsersCollections getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(UsersCollections author) {
+        this.author = author;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews(int views) {
+        this.views = views;
     }
 }
 

@@ -15,7 +15,6 @@ public class UsersCollections {
     private Date updated_at;
     private String description;
     @ManyToOne
-    @JoinColumn(name = "author", referencedColumnName = "id")
     private Users author;
     private int views;
 

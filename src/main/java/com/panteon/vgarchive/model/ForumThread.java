@@ -14,13 +14,10 @@ public class ForumThread {
     private int id;
     private String thread_name;
     @ManyToOne
-    @JoinColumn(name = "original_poster", referencedColumnName = "id")
     private Users original_poster;
-    private Date timestamp_created;
     private int upvotes;
     private int views;
     @ElementCollection
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<String> tags;
     private boolean is_locked;
 
@@ -49,14 +46,6 @@ public class ForumThread {
 
     public void setOriginal_poster(Users original_poster) {
         this.original_poster = original_poster;
-    }
-
-    public Date getTimestamp_created() {
-        return timestamp_created;
-    }
-
-    public void setTimestamp_created(Date timestamp_created) {
-        this.timestamp_created = timestamp_created;
     }
 
     public int getUpvotes() {
